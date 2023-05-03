@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Entercomponent from "./component/enter/enter";
+import { useState } from "react";
 
 function App() {
+  const [typingField, setTypingField] = useState("");
+  const [todoTask, setTodoTask] = useState([]);
+
+  const typingToDo = (e) => {
+    // const typedToDo = e.target.value;
+    // setTypingField(typedToDo);
+    console.log(e, "hrhhr");
+  };
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    if (e.key === "Enter") {
+      console.log("hi");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="todo-container">
+      <h1 className="title">TO DO LIST </h1>
+      <Entercomponent onFormSubmit={onFormSubmit} onTyping={typingToDo} />
     </div>
   );
 }

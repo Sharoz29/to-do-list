@@ -1,0 +1,28 @@
+.todo-task-container {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.task-text {
+  height: 3rem;
+  width: 25rem;
+  margin-left: 1.25rem;
+  align-items: left;
+}
+.btn {
+  width: 5rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+.edit-button {
+  background-color: yellow;
+}
+.delete-button {
+  background-color: red;
+}

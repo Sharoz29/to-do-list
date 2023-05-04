@@ -1,6 +1,11 @@
 import "./enter.css";
 
-const Entercomponent = ({ onFormSubmit, onTyping }) => {
+const Entercomponent = ({
+  onFormSubmit,
+  onTyping,
+  creatingTodo,
+  clearInput,
+}) => {
   return (
     <form className="todo-form" onSubmit={onFormSubmit}>
       <input
@@ -9,8 +14,12 @@ const Entercomponent = ({ onFormSubmit, onTyping }) => {
         id="todo"
         placeholder="Enter your tasks for today"
         onChange={onTyping}
+        onKeyDown={creatingTodo}
+        ref={clearInput}
       />
-      <input type="submit" className="todo-submit" />
+      {
+        //     <input type="submit" className="todo-submit" />
+      }
     </form>
   );
 };

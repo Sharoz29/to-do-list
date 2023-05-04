@@ -34,7 +34,7 @@ function App() {
         creatingTodo={creatingTodo}
       />
       {todoTask.map((task) => {
-        return <Task todoTask={task} />;
+        return <Task todoTask={task} onFormSubmit={onFormSubmit} />;
       })}
     </div>
   );

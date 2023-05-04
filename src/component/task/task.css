@@ -15,6 +15,9 @@
   margin-left: 1.25rem;
   align-items: left;
 }
+.completed {
+  margin-top: 1rem;
+}
 .btn {
   width: 5rem;
   border-radius: 0.5rem;

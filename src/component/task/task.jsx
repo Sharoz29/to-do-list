@@ -6,6 +6,8 @@ const Task = ({ todoTask, onFormSubmit }) => {
   const [saving, setSaving] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [task, setTask] = useState(todoTask);
+  const [completed, setCompleted] = useState(true);
+  const [checked, setchecked] = useState(false);
 
   const handleEditing = () => {
     setEditing(false);
@@ -22,6 +24,17 @@ const Task = ({ todoTask, onFormSubmit }) => {
   const editingTask = (e) => {
     setTask(e.target.value);
   };
+  const handleEntering = (e) => {
+    if (e.key === "Enter" && task) {
+      setEditing(true);
+      setSaving(false);
+    }
+  };
+
+  const handleCompleted = () => {
+    setCompleted(!completed);
+    setchecked(!checked);
+  };
 
   return (
     <div className="todo-task-container">
@@ -34,7 +47,22 @@ const Task = ({ todoTask, onFormSubmit }) => {
             className="task-text"
             autoFocus
             onChange={editingTask}
+            onKeyDown={handleEntering}
           />
+          {checked && (
+            <span className="completed" onClick={handleCompleted}>
+              ✅
+            </span>
+          )}
+          {completed && (
+            <button
+              type="button"
+              className="done-button btn"
+              onClick={handleCompleted}
+            >
+              Completed
+            </button>
+          )}
           {!saving && (
             <button
               type="button"
